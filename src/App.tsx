@@ -1,35 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [setup, setSetup] = useState("");
+  const [punchline, setPunchline] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const fetchRandomJoke = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        "https://joke-app-api.onrender.com/api/v1/jokes/random"
+      );
+      const { data } = await response.json();
+      setSetup(data.setup);
+      setPunchline(data.punchline);
+    } catch (error) {
+      console.error("Error fetching joke:", error);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+        // Simulate a slight delay for better UX
+      }, 500);
+    }
+  };
+
+  useEffect(() => {
+    fetchRandomJoke();
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="app">
+      <header className="app-header">
+        <h1>Carambar & Co - Blagues</h1>
+      </header>
+      <main className="app-main">
+        <button className="joke-button" onClick={fetchRandomJoke}>
+          Get a Joke!
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          (setup || punchline) && (
+            <div className="joke-container">
+              {setup && <p className="joke-setup">{setup}</p>}
+              {punchline && <p className="joke-punchline">{punchline}</p>}
+            </div>
+          )
+        )}
+      </main>
+      <footer className="app-footer">
+        <p>© Carambar & Co 2024</p>
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
