@@ -19,8 +19,8 @@ function App() {
       console.error("Error fetching joke:", error);
     } finally {
       setTimeout(() => {
-        setLoading(false);
         // Simulate a slight delay for better UX
+        setLoading(false);
       }, 500);
     }
   };
@@ -36,10 +36,10 @@ function App() {
       </header>
       <main className="app-main">
         <button className="joke-button" onClick={fetchRandomJoke}>
-          Get a Joke!
+          Obtenir une blague !
         </button>
         {loading ? (
-          <p>Loading...</p>
+          <p>Chargement...</p>
         ) : (
           (setup || punchline) && (
             <div className="joke-container">
@@ -50,7 +50,10 @@ function App() {
         )}
       </main>
       <footer className="app-footer">
-        <p>© Carambar & Co 2024</p>
+        <p className="disclaimer">
+          Projet d'exercice technique sans affiliation avec la marque Carambar
+        </p>
+        <p>© Julien Lemarchand 2025</p>
       </footer>
     </div>
   );
