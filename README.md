@@ -11,6 +11,8 @@
 L'application est déployée sur GitHub Pages :
 **URL de production** : [https://lemarjul.github.io/joke-app-client/](https://lemarjul.github.io/joke-app-client/)
 
+🚨 **Attention** : L'application peut mettre quelques secondes à charger les blagues en raison d'un hébergement gratuit de l'api (render.com) avec un "cold start" après une période d'inactivité. Ré-essayez après un minutes si les blagues ne s'affichent pas.
+
 ## 📦 Installation et développement
 
 ```bash
@@ -28,5 +30,5 @@ npm run deploy
 
 ## 🔗 Liens utiles
 
-- **API Backend** : [https://joke-app-api.onrender.com](https://joke-app-api.onrender.com)
+- **Repository API Backend** : [https://github.com/lemarJul/joke-app-api](https://github.com/lemarJul/joke-app-api)
 - **Documentation API** : [https://joke-app-api.onrender.com/api/v1/docs](https://joke-app-api.onrender.com/api/v1/docs)
