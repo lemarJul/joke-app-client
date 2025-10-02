@@ -4,18 +4,18 @@
 
 - [x] consommation de l'API Joke
 - [x] affichage des blagues
-- [ ] déploiement via GitHub Pages
+- [x] déploiement via GitHub Pages
 
 ## 🚀 Déploiement
 
 L'application est déployée sur GitHub Pages :
-**URL de production** : [https://votre-username.github.io/nom-du-repo-frontend](https://votre-username.github.io/nom-du-repo-frontend)
+**URL de production** : [https://lemarjul.github.io/joke-app-client/](https://lemarjul.github.io/joke-app-client/)
 
 ## 📦 Installation et développement
 
 ```bash
 # Cloner le repository
-git clone https://github.com/votre-username/nom-du-repo-frontend.git
+git clone https://github.com/lemarJul/joke-app-client.git
 # Installer les dépendances
 npm install
 # Démarrer en mode développement
